@@ -1,0 +1,2298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eduardo's Auto Body | Collision Repair & Paint — Fresno, CA</title>
+  <meta name="description" content="Eduardo's Auto Body — expert collision repair, paint matching, frame straightening, and dent removal in Fresno, CA. Family-owned. Free estimates. All insurance accepted." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Eduardo's Auto Body | Fresno, CA" />
+  <meta property="og:description" content="Expert collision repair and auto paint in Fresno, CA. Family-owned. Free estimates. All insurance accepted." />
+  <meta property="og:type" content="website" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"AutoBodyShop","name":"Eduardo's Auto Body","address":{"@type":"PostalAddress","addressLocality":"Fresno","addressRegion":"CA","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":36.7063115,"longitude":-119.552634},"telephone":"+15590000000","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"14:00"}]}
+  </script>
+
+  <!-- Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ========================================
+       TOKENS
+    ======================================== */
+    :root {
+      --blue:       #023f82;
+      --blue-mid:   #1a50a9;
+      --blue-dark:  #012d5e;
+      --blue-pale:  rgba(2,63,130,0.07);
+      --blue-border:rgba(2,63,130,0.18);
+      --dark:       #32373c;
+      --text:       #1c1c1c;
+      --text-mid:   #444950;
+      --text-muted: #6b727a;
+      --text-light: #9aa0a8;
+      --white:      #ffffff;
+      --bg:         #ffffff;
+      --bg-alt:     #f4f6f9;
+      --bg-dark:    #1c2736;
+      --border:     #dde1e7;
+      --red:        #c0392b;
+      --nav-h:      68px;
+      --transition: 0.22s ease;
+      --font:       'Poppins', system-ui, sans-serif;
+      --shadow-sm:  0 2px 8px rgba(0,0,0,0.08);
+      --shadow:     0 4px 20px rgba(0,0,0,0.1);
+      --shadow-lg:  0 8px 40px rgba(0,0,0,0.14);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul { list-style: none; }
+
+    /* ========================================
+       UTILITIES
+    ======================================== */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 28px;
+      width: 100%;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font);
+      font-size: 0.83rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 12px 26px;
+      border-radius: 4px;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .btn-blue {
+      background: var(--blue);
+      color: var(--white);
+      border: 2px solid var(--blue);
+    }
+    .btn-blue:hover {
+      background: var(--blue-mid);
+      border-color: var(--blue-mid);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(2,63,130,0.3);
+    }
+    .btn-outline-blue {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.7);
+    }
+    .btn-outline-blue:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: var(--white);
+    }
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--blue);
+      border: 2px solid var(--blue);
+    }
+    .btn-outline-dark:hover {
+      background: var(--blue);
+      color: var(--white);
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--blue);
+      border: 2px solid var(--white);
+    }
+    .btn-white:hover {
+      background: var(--bg-alt);
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      border-bottom: 2px solid var(--blue);
+      padding-bottom: 3px;
+      margin-bottom: 12px;
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.up { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.18s; }
+    .d3 { transition-delay: 0.26s; }
+    .d4 { transition-delay: 0.34s; }
+    .d5 { transition-delay: 0.42s; }
+
+    /* ========================================
+       TOP BAR
+    ======================================== */
+    .top-bar {
+      background: var(--blue-dark);
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .top-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.75);
+    }
+    .top-bar-item svg {
+      width: 13px;
+      height: 13px;
+      color: rgba(255,255,255,0.5);
+      flex-shrink: 0;
+    }
+    .top-bar-item a { transition: color var(--transition); }
+    .top-bar-item a:hover { color: var(--white); }
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .top-bar-phone {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .top-bar-phone svg { width: 13px; height: 13px; }
+
+    /* ========================================
+       NAVIGATION
+    ======================================== */
+    #nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      flex-shrink: 0;
+    }
+    .nav-logo-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+    .nav-logo-sub {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-links > li > a,
+    .nav-links > li > button {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      padding: 10px 12px;
+      border-radius: 4px;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .nav-links > li > a:hover,
+    .nav-links > li > button:hover {
+      color: var(--blue);
+      background: var(--blue-pale);
+    }
+
+    /* Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+    .nav-dropdown-toggle svg {
+      width: 12px;
+      height: 12px;
+      transition: transform var(--transition);
+    }
+    .nav-dropdown:hover .nav-dropdown-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      box-shadow: var(--shadow);
+      min-width: 200px;
+      padding: 6px 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+    }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 9px 18px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      transition: var(--transition);
+    }
+    .nav-dropdown-menu a:hover {
+      background: var(--blue-pale);
+      color: var(--blue);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 6px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--blue);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--white);
+      z-index: 99;
+      flex-direction: column;
+      padding: 90px 28px 40px;
+      overflow-y: auto;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a, .mobile-menu-section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      display: block;
+    }
+    .mobile-menu a:hover { color: var(--blue); }
+    .mobile-menu-section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 12px;
+      padding-bottom: 8px;
+      border-bottom: none;
+    }
+    .mobile-menu-cta {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mobile-menu-cta .btn {
+      justify-content: center;
+      font-size: 0.88rem;
+      padding: 14px;
+    }
+
+    /* ========================================
+       HERO CAROUSEL
+    ======================================== */
+    #hero {
+      position: relative;
+      height: calc(100vh - var(--nav-h) - 42px);
+      min-height: 500px;
+      max-height: 760px;
+      overflow: hidden;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+      pointer-events: none;
+    }
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .slide-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.04);
+      transition: transform 6s ease;
+    }
+    .slide.active .slide-bg { transform: scale(1); }
+
+    .slide-1 .slide-bg { background: linear-gradient(120deg, #0a1628 0%, #0d2545 30%, #1a3a6e 60%, #0e2040 100%); }
+    .slide-2 .slide-bg { background: linear-gradient(120deg, #0d1a0d 0%, #1a3020 30%, #0f2518 60%, #0a1a10 100%); }
+    .slide-3 .slide-bg { background: linear-gradient(120deg, #1a1208 0%, #2d1f0a 30%, #1a1508 60%, #0d1005 100%); }
+
+    /* Slide decorative elements */
+    .slide-decor {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .slide-decor::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 60%;
+      height: 140%;
+      background: rgba(255,255,255,0.025);
+      transform: rotate(-12deg);
+      border-radius: 40px;
+    }
+    .slide-decor::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      right: 10%;
+      width: 40%;
+      height: 80%;
+      background: rgba(255,255,255,0.015);
+      transform: rotate(-12deg);
+      border-radius: 40px;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 60%, transparent 100%);
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 0 0 64px;
+      max-width: 640px;
+    }
+
+    .slide-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 3px;
+      padding: 5px 12px;
+      margin-bottom: 20px;
+    }
+
+    .slide-h1 {
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 18px;
+    }
+    .slide-h1 span { color: #5b9fff; }
+
+    .slide-desc {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.75;
+      margin-bottom: 32px;
+      max-width: 460px;
+    }
+
+    .slide-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Carousel controls */
+    .carousel-controls {
+      position: absolute;
+      bottom: 32px;
+      left: 64px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .carousel-dot {
+      width: 28px;
+      height: 3px;
+      background: rgba(255,255,255,0.35);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .carousel-dot.active {
+      background: var(--white);
+      width: 40px;
+    }
+
+    .carousel-arrows {
+      position: absolute;
+      right: 32px;
+      bottom: 24px;
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+    }
+    .carousel-arrow {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .carousel-arrow:hover { background: rgba(255,255,255,0.22); }
+    .carousel-arrow svg {
+      width: 16px;
+      height: 16px;
+      color: var(--white);
+    }
+
+    /* ========================================
+       QUICK INFO BAR
+    ======================================== */
+    .quick-bar {
+      background: var(--blue);
+      padding: 0;
+    }
+    .quick-bar-inner {
+      display: flex;
+      align-items: stretch;
+    }
+    .quick-item {
+      flex: 1;
+      padding: 22px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      transition: background var(--transition);
+    }
+    .quick-item:last-child { border-right: none; }
+    .quick-item:hover { background: var(--blue-mid); }
+    .quick-item-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .quick-item-icon svg { width: 18px; height: 18px; color: var(--white); }
+    .quick-item-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 2px;
+    }
+    .quick-item-value {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .quick-item-value a { color: inherit; transition: opacity var(--transition); }
+    .quick-item-value a:hover { opacity: 0.8; }
+
+    /* ========================================
+       SERVICES (3-column cards)
+    ======================================== */
+    #services {
+      padding: 88px 0;
+      background: var(--bg-alt);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .section-title {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: box-shadow var(--transition), border-color var(--transition), background var(--transition), transform var(--transition);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: left;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      border-color: var(--blue);
+      background: var(--blue);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .service-card:hover .sc-icon { background: rgba(255,255,255,0.15); color: var(--white); }
+    .service-card:hover .sc-title { color: var(--white); }
+    .service-card:hover .sc-desc { color: rgba(255,255,255,0.75); }
+    .service-card:hover .sc-link { color: rgba(255,255,255,0.7); }
+    .service-card:hover .sc-link:hover { color: var(--white); }
+
+    .sc-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--blue-pale);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+      transition: var(--transition);
+    }
+    .sc-icon svg { width: 26px; height: 26px; }
+    .sc-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      transition: var(--transition);
+      line-height: 1.3;
+    }
+    .sc-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      flex: 1;
+      transition: var(--transition);
+    }
+    .sc-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .sc-link svg { width: 14px; height: 14px; }
+
+    /* ========================================
+       ABOUT / WELCOME
+    ======================================== */
+    #about {
+      padding: 88px 0;
+      background: var(--bg);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-img-block {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #0d2040 0%, #1a3a6e 50%, #0a1a35 100%);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-img-main::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -50deg,
+        rgba(255,255,255,0.02),
+        rgba(255,255,255,0.02) 1px,
+        transparent 1px,
+        transparent 18px
+      );
+    }
+    .about-img-label {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--blue);
+      color: var(--white);
+      padding: 14px 20px;
+      border-radius: 6px;
+      box-shadow: var(--shadow);
+      z-index: 2;
+    }
+    .about-img-label-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .about-img-label-text {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-top: 2px;
+    }
+    .about-img-badge {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 88px;
+      height: 88px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 2;
+    }
+    .about-img-badge-num {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+    }
+    .about-img-badge-text {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+
+    .about-text h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .about-text p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 28px 0 32px;
+    }
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--text-mid);
+    }
+    .about-feature-check {
+      width: 18px;
+      height: 18px;
+      background: var(--blue-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .about-feature-check svg { width: 10px; height: 10px; color: var(--blue); }
+
+    /* ========================================
+       STATS BAND
+    ======================================== */
+    .stats-band {
+      background: var(--bg-dark);
+      padding: 56px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 24px 20px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-num sup { font-size: 1.2rem; color: #5b9fff; }
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ========================================
+       CERTIFICATIONS / TRUST
+    ======================================== */
+    #certs {
+      padding: 72px 0;
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+    }
+
+    .certs-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .cert-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .cert-badge {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-width: 130px;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .cert-badge:hover { border-color: var(--blue); box-shadow: var(--shadow); }
+    .cert-badge-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--blue-pale);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+    }
+    .cert-badge-icon svg { width: 22px; height: 22px; }
+    .cert-badge-name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dark);
+      text-align: center;
+    }
+    .cert-badge-sub {
+      font-size: 0.62rem;
+      font-weight: 400;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    .insurance-section {
+      margin-top: 52px;
+    }
+    .insurance-title {
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+    .insurance-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .ins-logo {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-mid);
+      letter-spacing: 0.04em;
+      transition: var(--transition);
+    }
+    .ins-logo:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ========================================
+       BEFORE & AFTER
+    ======================================== */
+    #gallery {
+      padding: 88px 0;
+      background: var(--bg);
+    }
+
+    .ba-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .ba-card {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .ba-slider {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      cursor: col-resize;
+      user-select: none;
+    }
+    .ba-before {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a1008 0%, #2d1f10 50%, #1a1008 100%);
+      display: flex;
+      align-items: flex-start;
+      padding: 14px;
+    }
+    .ba-before::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(-45deg, rgba(0,0,0,0.07), rgba(0,0,0,0.07) 1px, transparent 1px, transparent 14px);
+    }
+    .ba-after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0d2040 0%, #1a3a6e 50%, #0a1a35 100%);
+      clip-path: inset(0 50% 0 0);
+      display: flex;
+      align-items: flex-start;
+      padding: 14px;
+    }
+    .ba-pill {
+      position: relative;
+      z-index: 2;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.3);
+      color: rgba(255,255,255,0.85);
+      backdrop-filter: blur(4px);
+    }
+    .ba-handle {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 36px;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: col-resize;
+    }
+    .ba-handle-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: var(--white);
+      transform: translateX(-50%);
+      opacity: 0.7;
+    }
+    .ba-handle-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+    .ba-handle-btn svg { width: 15px; height: 15px; color: var(--blue); }
+    .ba-caption {
+      background: var(--white);
+      padding: 16px 20px;
+      border-top: 3px solid var(--blue);
+    }
+    .ba-caption-title { font-size: 0.92rem; font-weight: 700; color: var(--dark); }
+    .ba-caption-sub { font-size: 0.72rem; font-weight: 500; color: var(--text-muted); margin-top: 2px; letter-spacing: 0.04em; }
+
+    /* ========================================
+       TESTIMONIALS
+    ======================================== */
+    #testimonials {
+      padding: 88px 0;
+      background: var(--bg-alt);
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testi-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+    }
+    .testi-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+      border-color: var(--blue);
+    }
+
+    .testi-stars { display: flex; gap: 2px; }
+    .tstar { width: 15px; height: 15px; color: #f5a623; }
+
+    .testi-quote {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.8;
+      flex: 1;
+      font-style: italic;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .testi-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--blue-pale);
+      border: 2px solid var(--blue-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+    .testi-name { font-size: 0.85rem; font-weight: 700; color: var(--dark); }
+    .testi-loc { font-size: 0.72rem; font-weight: 400; color: var(--text-light); margin-top: 1px; }
+
+    .testi-cta {
+      text-align: center;
+      margin-top: 44px;
+    }
+    .testi-cta p {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* ========================================
+       CONTACT / ESTIMATE
+    ======================================== */
+    #contact {
+      padding: 88px 0;
+      background: var(--bg);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .contact-left h2 {
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .contact-left > p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-item:first-child { border-top: 1px solid var(--border); }
+    .contact-item-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--blue-pale);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--blue);
+    }
+    .contact-item-icon svg { width: 18px; height: 18px; }
+    .contact-item-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+    .contact-item-val {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .contact-item-val a { color: var(--blue); transition: color var(--transition); }
+    .contact-item-val a:hover { color: var(--blue-mid); }
+
+    .hours-table {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3px 16px;
+    }
+    .hday { font-size: 0.83rem; font-weight: 400; color: var(--text-muted); }
+    .htime { font-size: 0.83rem; font-weight: 600; color: var(--text); }
+
+    .map-wrap {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; }
+
+    /* Form */
+    .form-box {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 36px;
+    }
+    .form-box h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .form-box > p {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .fg { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+    .fg-last { margin-bottom: 20px; }
+    .fl { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+    .fi, .fs, .ft {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 11px 14px;
+      font-family: var(--font);
+      font-size: 0.85rem;
+      color: var(--text);
+      width: 100%;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .fi:focus, .fs:focus, .ft:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(2,63,130,0.1);
+    }
+    .fi::placeholder, .ft::placeholder { color: var(--text-light); }
+    .fs option { background: var(--white); }
+    .ft { resize: vertical; min-height: 96px; }
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+    footer {
+      background: var(--bg-dark);
+      padding: 64px 0 36px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+    .footer-brand-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .footer-brand-sub {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 14px;
+    }
+    .footer-brand-desc {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      max-width: 220px;
+    }
+    .footer-col-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 14px;
+    }
+    .footer-col-links { display: flex; flex-direction: column; gap: 9px; }
+    .footer-col-links a {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      transition: color var(--transition);
+    }
+    .footer-col-links a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 0.78rem; color: rgba(255,255,255,0.3); transition: color var(--transition); }
+    .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ========================================
+       STICKY MOBILE BAR
+    ======================================== */
+    .sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 90;
+      background: var(--blue);
+      padding: 12px 20px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid var(--blue-mid);
+    }
+    .sticky-bar-phone {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .sticky-bar-phone a { color: inherit; }
+
+    /* ========================================
+       RESPONSIVE
+    ======================================== */
+    @media (max-width: 1024px) {
+      .service-cards { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-img-block { max-width: 540px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.08); }
+      .stat-item { border-right: none; background: var(--bg-dark); }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --nav-h: 60px; }
+      .container { padding: 0 20px; }
+      .top-bar { display: none; }
+      .nav-links, .nav-right .btn:not(.hamburger) { display: none; }
+      .hamburger { display: flex; }
+
+      #hero { height: auto; min-height: calc(100svh - var(--nav-h)); max-height: none; }
+      .slide-content { padding: 40px 20px; max-width: 100%; }
+      .carousel-controls { left: 20px; }
+      .carousel-arrows { display: none; }
+
+      .quick-bar-inner { flex-direction: column; }
+      .quick-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
+      .quick-item:last-child { border-bottom: none; }
+
+      .service-cards { grid-template-columns: 1fr; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+
+      .form-row-2 { grid-template-columns: 1fr; }
+      .form-box { padding: 24px 16px; }
+
+      .cert-badges { gap: 12px; }
+      body { padding-bottom: 56px; }
+      .sticky-bar { display: flex; }
+
+      .nav-right { gap: 8px; }
+    }
+
+    @media (max-width: 480px) {
+      .about-features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-left">
+          <div class="top-bar-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Mon–Fri 8:00AM–5:30PM &nbsp;·&nbsp; Sat 9:00AM–2:00PM
+          </div>
+          <div class="top-bar-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <a href="https://www.google.com/maps/place/Eduardo's+Auto+Body/@36.7063115,-119.552634,17z" target="_blank" rel="noopener noreferrer">Fresno, CA — Get Directions</a>
+          </div>
+        </div>
+        <div class="top-bar-right">
+          <div class="top-bar-phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+15590000000">(559) 000-0000</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo" aria-label="Eduardo's Auto Body home">
+          <span class="nav-logo-name">Eduardo's Auto Body</span>
+          <span class="nav-logo-sub">Fresno, California · Est. 2009</span>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li class="nav-dropdown">
+            <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+              Services
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="#services" role="menuitem">Collision Repair</a>
+              <a href="#services" role="menuitem">Auto Paint & Refinishing</a>
+              <a href="#services" role="menuitem">Paintless Dent Removal</a>
+              <a href="#services" role="menuitem">Frame Straightening</a>
+              <a href="#services" role="menuitem">Insurance Claim Assistance</a>
+              <a href="#services" role="menuitem">Auto Glass Repair</a>
+            </div>
+          </li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <a href="tel:+15590000000" class="btn btn-outline-dark" style="display:none" id="navPhone">(559) 000-0000</a>
+          <a href="#contact" class="btn btn-blue">Free Estimate</a>
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+    <div class="mobile-menu-section-title">Services</div>
+    <a href="#services" class="mm-link">Collision Repair</a>
+    <a href="#services" class="mm-link">Auto Paint & Refinishing</a>
+    <a href="#services" class="mm-link">Paintless Dent Removal</a>
+    <a href="#services" class="mm-link">Frame Straightening</a>
+    <a href="#services" class="mm-link">Insurance Claims</a>
+    <a href="#gallery" class="mm-link">Gallery</a>
+    <a href="#about" class="mm-link">About Us</a>
+    <a href="#testimonials" class="mm-link">Reviews</a>
+    <a href="#contact" class="mm-link">Contact</a>
+    <div class="mobile-menu-cta">
+      <a href="tel:+15590000000" class="btn btn-outline-dark mm-link">(559) 000-0000</a>
+      <a href="#contact" class="btn btn-blue mm-link">Get Free Estimate</a>
+    </div>
+  </div>
+
+
+  <!-- HERO CAROUSEL -->
+  <section id="hero" aria-label="Hero">
+    <div class="carousel" id="carousel">
+
+      <div class="slide active" id="slide-0">
+        <div class="slide-bg slide-1"></div>
+        <div class="slide-decor" aria-hidden="true"></div>
+        <div class="slide-overlay" aria-hidden="true"></div>
+        <div class="container">
+          <div class="slide-content">
+            <span class="slide-tag">Collision Repair Specialists</span>
+            <h1 class="slide-h1">Fresno's Trusted<br/><span>Collision Repair</span><br/>Experts</h1>
+            <p class="slide-desc">From minor fender damage to major structural repairs — we restore your vehicle to factory condition. Family-owned, fully insured, lifetime warranty on all repairs.</p>
+            <div class="slide-actions">
+              <a href="#contact" class="btn btn-blue">Get a Free Estimate</a>
+              <a href="#services" class="btn btn-outline-blue">Our Services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" id="slide-1">
+        <div class="slide-bg slide-2"></div>
+        <div class="slide-decor" aria-hidden="true"></div>
+        <div class="slide-overlay" aria-hidden="true"></div>
+        <div class="container">
+          <div class="slide-content">
+            <span class="slide-tag">Auto Paint & Refinishing</span>
+            <h1 class="slide-h1">Flawless Paint<br/><span>Color Matching</span><br/>Guaranteed</h1>
+            <p class="slide-desc">Computer-matched color blending, premium clear coat finishes, and meticulous prep work — your car will look better than the day you bought it.</p>
+            <div class="slide-actions">
+              <a href="#contact" class="btn btn-blue">Schedule Appointment</a>
+              <a href="#gallery" class="btn btn-outline-blue">View Our Work</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" id="slide-2">
+        <div class="slide-bg slide-3"></div>
+        <div class="slide-decor" aria-hidden="true"></div>
+        <div class="slide-overlay" aria-hidden="true"></div>
+        <div class="container">
+          <div class="slide-content">
+            <span class="slide-tag">Family-Owned Since 2009</span>
+            <h1 class="slide-h1">Honest Work,<br/><span>Done Right</span><br/>Every Time</h1>
+            <p class="slide-desc">We work with all major insurance carriers, offer free written estimates, and keep you updated throughout every repair. No surprises — just quality.</p>
+            <div class="slide-actions">
+              <a href="tel:+15590000000" class="btn btn-blue">Call (559) 000-0000</a>
+              <a href="#about" class="btn btn-outline-blue">About Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-controls" aria-label="Carousel navigation">
+        <div class="carousel-dot active" data-slide="0" role="button" aria-label="Slide 1"></div>
+        <div class="carousel-dot" data-slide="1" role="button" aria-label="Slide 2"></div>
+        <div class="carousel-dot" data-slide="2" role="button" aria-label="Slide 3"></div>
+      </div>
+
+      <div class="carousel-arrows">
+        <button class="carousel-arrow" id="prevBtn" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="carousel-arrow" id="nextBtn" aria-label="Next slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- QUICK INFO BAR -->
+  <div class="quick-bar" aria-label="Quick contact information">
+    <div class="container">
+      <div class="quick-bar-inner">
+        <div class="quick-item">
+          <div class="quick-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="quick-item-label">Call Us Today</div>
+            <div class="quick-item-value"><a href="tel:+15590000000">(559) 000-0000</a></div>
+          </div>
+        </div>
+        <div class="quick-item">
+          <div class="quick-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="quick-item-label">Free Estimates</div>
+            <div class="quick-item-value">Walk-ins Welcome</div>
+          </div>
+        </div>
+        <div class="quick-item">
+          <div class="quick-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="quick-item-label">Warranty</div>
+            <div class="quick-item-value">Lifetime on All Repairs</div>
+          </div>
+        </div>
+        <div class="quick-item">
+          <div class="quick-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="quick-item-label">Insurance</div>
+            <div class="quick-item-value">All Major Carriers Accepted</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SERVICES -->
+  <section id="services" aria-label="Services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What We Do</span>
+        <h2 class="section-title">Complete Auto Body Services</h2>
+        <p class="section-sub">From minor dings to full collision rebuilds — our certified technicians deliver factory-quality results on every job.</p>
+      </div>
+
+      <div class="service-cards">
+
+        <div class="service-card reveal d1">
+          <div class="sc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="sc-title">Collision Repair</div>
+          <p class="sc-desc">Full structural and cosmetic restoration after accidents of any severity. We handle everything from the estimate to delivery, and work directly with your insurance company.</p>
+          <a href="#contact" class="sc-link">
+            Get Estimate
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card reveal d2">
+          <div class="sc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+          </div>
+          <div class="sc-title">Auto Paint & Refinishing</div>
+          <p class="sc-desc">Computer-matched color blending and premium clear coat finishes. Whether it's a spot repair or a full respray, we deliver a seamless result that matches your factory color perfectly.</p>
+          <a href="#contact" class="sc-link">
+            Learn More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card reveal d3">
+          <div class="sc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22a10 10 0 100-20 10 10 0 000 20z"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+          </div>
+          <div class="sc-title">Paintless Dent Removal</div>
+          <p class="sc-desc">Precision techniques to remove dings and dents without disturbing your original paint. Faster, more affordable, and your factory finish stays completely intact.</p>
+          <a href="#contact" class="sc-link">
+            Learn More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card reveal d1">
+          <div class="sc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2M8 7V5a2 2 0 00-4 0v2"/></svg>
+          </div>
+          <div class="sc-title">Frame Straightening</div>
+          <p class="sc-desc">Laser-guided frame and unibody alignment to restore structural integrity after major impacts. Your safety depends on a properly aligned frame — we get it right.</p>
+          <a href="#contact" class="sc-link">
+            Learn More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card reveal d2">
+          <div class="sc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="sc-title">Insurance Claim Assistance</div>
+          <p class="sc-desc">We handle the paperwork and communicate directly with your adjuster — Farmers, State Farm, GEICO, AAA, Allstate, and more. You focus on your day; we'll handle the rest.</p>
+          <a href="#contact" class="sc-link">
+            Learn More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card reveal d3">
+          <div class="sc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="sc-title">Auto Glass Repair</div>
+          <p class="sc-desc">Windshield chip repair, full windshield replacement, and side or rear window glass. We use OEM-quality glass and precision sealing on every installation.</p>
+          <a href="#contact" class="sc-link">
+            Learn More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about" aria-label="About Eduardo's Auto Body">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-img-block reveal">
+          <div class="about-img-main" aria-label="Eduardo's Auto Body shop"></div>
+          <div class="about-img-label">
+            <div class="about-img-label-num">15+</div>
+            <div class="about-img-label-text">Years of Experience</div>
+          </div>
+          <div class="about-img-badge" aria-hidden="true">
+            <div class="about-img-badge-num">5.0</div>
+            <div class="about-img-badge-text">Star Google Rating</div>
+          </div>
+        </div>
+
+        <div class="about-text reveal d2">
+          <span class="section-tag">About Us</span>
+          <h2>Welcome to<br/>Eduardo's Auto Body</h2>
+          <p>Eduardo's Auto Body has been serving Fresno and the Central Valley with honest, high-quality collision repair since day one. We're a family-owned shop that takes real pride in every car we touch — big jobs or small, we treat them all the same.</p>
+          <p>Our team is trained in the latest repair techniques and uses top-quality materials and parts. We work with all major insurance carriers and handle the claims process from start to finish, so the experience is as stress-free as possible for you.</p>
+
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="about-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+              Lifetime Repair Warranty
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+              Free Written Estimates
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+              All Insurance Accepted
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+              OEM Quality Parts
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+              Family-Owned & Operated
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+              Repair Status Updates
+            </div>
+          </div>
+
+          <a href="#contact" class="btn btn-blue">Request Free Estimate</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- STATS BAND -->
+  <div class="stats-band" aria-label="Shop statistics">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-num"><span class="counter" data-target="15">0</span><sup>+</sup></div>
+          <div class="stat-label">Years in Business</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num"><span class="counter" data-target="2500">0</span><sup>+</sup></div>
+          <div class="stat-label">Vehicles Repaired</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num"><span class="counter" data-target="98">0</span><sup>%</sup></div>
+          <div class="stat-label">Customer Satisfaction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">5.0<sup>★</sup></div>
+          <div class="stat-label">Google Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CERTIFICATIONS & INSURANCE -->
+  <section id="certs" aria-label="Certifications and insurance partners">
+    <div class="container">
+      <div class="certs-header reveal">
+        <span class="section-tag">Trust & Credentials</span>
+        <h2 class="section-title">Certified. Trusted. Qualified.</h2>
+        <p class="section-sub">We meet the highest industry standards so you can have complete confidence in our work.</p>
+      </div>
+
+      <div class="cert-badges">
+        <div class="cert-badge reveal d1">
+          <div class="cert-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="cert-badge-name">I-CAR Gold</div>
+          <div class="cert-badge-sub">Certified Training</div>
+        </div>
+        <div class="cert-badge reveal d2">
+          <div class="cert-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+          <div class="cert-badge-name">ASE Certified</div>
+          <div class="cert-badge-sub">Expert Technicians</div>
+        </div>
+        <div class="cert-badge reveal d3">
+          <div class="cert-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+          <div class="cert-badge-name">BBB Accredited</div>
+          <div class="cert-badge-sub">A+ Rating</div>
+        </div>
+        <div class="cert-badge reveal d4">
+          <div class="cert-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="cert-badge-name">Lifetime Warranty</div>
+          <div class="cert-badge-sub">All Collision Repairs</div>
+        </div>
+        <div class="cert-badge reveal d5">
+          <div class="cert-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+          <div class="cert-badge-name">Free Estimates</div>
+          <div class="cert-badge-sub">Written & Itemized</div>
+        </div>
+      </div>
+
+      <div class="insurance-section reveal">
+        <div class="insurance-title">Accepted Insurance Carriers</div>
+        <div class="insurance-logos">
+          <div class="ins-logo">State Farm</div>
+          <div class="ins-logo">GEICO</div>
+          <div class="ins-logo">Farmers</div>
+          <div class="ins-logo">Allstate</div>
+          <div class="ins-logo">AAA</div>
+          <div class="ins-logo">Progressive</div>
+          <div class="ins-logo">Nationwide</div>
+          <div class="ins-logo">Liberty Mutual</div>
+          <div class="ins-logo">+ All Others</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- GALLERY / BEFORE & AFTER -->
+  <section id="gallery" aria-label="Before and after gallery">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Our Work</span>
+        <h2 class="section-title">Before & After Gallery</h2>
+        <p class="section-sub">Drag the slider on each image to see the difference our work makes. Real repairs, real results.</p>
+      </div>
+
+      <div class="ba-grid">
+
+        <div class="ba-card reveal d1">
+          <div class="ba-slider" data-slider>
+            <div class="ba-before"><span class="ba-pill">Before</span></div>
+            <div class="ba-after"><span class="ba-pill">After</span></div>
+            <div class="ba-handle">
+              <div class="ba-handle-line"></div>
+              <div class="ba-handle-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/><path d="M9 18l6-6-6-6"/></svg></div>
+            </div>
+          </div>
+          <div class="ba-caption">
+            <div class="ba-caption-title">Front Bumper & Hood Repair</div>
+            <div class="ba-caption-sub">Collision Repair · Paint Refinishing</div>
+          </div>
+        </div>
+
+        <div class="ba-card reveal d2">
+          <div class="ba-slider" data-slider>
+            <div class="ba-before"><span class="ba-pill">Before</span></div>
+            <div class="ba-after"><span class="ba-pill">After</span></div>
+            <div class="ba-handle">
+              <div class="ba-handle-line"></div>
+              <div class="ba-handle-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/><path d="M9 18l6-6-6-6"/></svg></div>
+            </div>
+          </div>
+          <div class="ba-caption">
+            <div class="ba-caption-title">Side Panel Dent & Scratch</div>
+            <div class="ba-caption-sub">Paintless Dent Removal · Color Match</div>
+          </div>
+        </div>
+
+        <div class="ba-card reveal d3">
+          <div class="ba-slider" data-slider>
+            <div class="ba-before"><span class="ba-pill">Before</span></div>
+            <div class="ba-after"><span class="ba-pill">After</span></div>
+            <div class="ba-handle">
+              <div class="ba-handle-line"></div>
+              <div class="ba-handle-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/><path d="M9 18l6-6-6-6"/></svg></div>
+            </div>
+          </div>
+          <div class="ba-caption">
+            <div class="ba-caption-title">Rear-End Collision Rebuild</div>
+            <div class="ba-caption-sub">Frame Straightening · Full Respray</div>
+          </div>
+        </div>
+
+        <div class="ba-card reveal d4">
+          <div class="ba-slider" data-slider>
+            <div class="ba-before"><span class="ba-pill">Before</span></div>
+            <div class="ba-after"><span class="ba-pill">After</span></div>
+            <div class="ba-handle">
+              <div class="ba-handle-line"></div>
+              <div class="ba-handle-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/><path d="M9 18l6-6-6-6"/></svg></div>
+            </div>
+          </div>
+          <div class="ba-caption">
+            <div class="ba-caption-title">Hail Damage Restoration</div>
+            <div class="ba-caption-sub">PDR · Multi-Panel Repair</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" aria-label="Customer reviews">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Reviews</span>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-sub">Don't take our word for it — here's what Fresno drivers say about us on Google.</p>
+      </div>
+
+      <div class="testi-grid">
+
+        <article class="testi-card reveal d1">
+          <div class="testi-stars" aria-label="5 stars">
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testi-quote">"Brought my truck in after a pretty bad fender-bender. Eduardo's team kept me updated the whole time and when I picked it up, it looked like nothing ever happened. Absolutely flawless work. I won't go anywhere else."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" aria-hidden="true">RM</div>
+            <div><div class="testi-name">Robert M.</div><div class="testi-loc">Fresno, CA · Google Review</div></div>
+          </div>
+        </article>
+
+        <article class="testi-card reveal d2">
+          <div class="testi-stars" aria-label="5 stars">
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testi-quote">"Getting into an accident is stressful enough. Eduardo's made the entire repair process easy — they dealt with my insurance directly and delivered exactly on time. The paint match is perfect. Truly impressed."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" aria-hidden="true">SL</div>
+            <div><div class="testi-name">Sarah L.</div><div class="testi-loc">Clovis, CA · Google Review</div></div>
+          </div>
+        </article>
+
+        <article class="testi-card reveal d3">
+          <div class="testi-stars" aria-label="5 stars">
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="tstar" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testi-quote">"I've brought three different cars here over the years and they never disappoint. Fair pricing, quality craftsmanship, and they genuinely care. This is the only body shop I trust in the entire Central Valley."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" aria-hidden="true">JT</div>
+            <div><div class="testi-name">James T.</div><div class="testi-loc">Selma, CA · Google Review</div></div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="testi-cta reveal">
+        <p>Read more of our reviews on Google</p>
+        <a href="https://www.google.com/maps/place/Eduardo's+Auto+Body/@36.7063115,-119.552634,17z" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">
+          View All Reviews on Google
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" aria-label="Contact and estimate">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-left reveal">
+          <span class="section-tag">Contact Us</span>
+          <h2>Get Your Free<br/>Estimate Today</h2>
+          <p>Stop by, give us a call, or fill out the form — we'll get back to you quickly with an honest, itemized estimate at no charge.</p>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+              <div>
+                <div class="contact-item-label">Phone</div>
+                <div class="contact-item-val"><a href="tel:+15590000000">(559) 000-0000</a></div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div>
+                <div class="contact-item-label">Email</div>
+                <div class="contact-item-val"><a href="mailto:info@eduardosautobody.com">info@eduardosautobody.com</a></div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div>
+                <div class="contact-item-label">Location</div>
+                <div class="contact-item-val">
+                  Fresno, CA<br/>
+                  <a href="https://www.google.com/maps/place/Eduardo's+Auto+Body/@36.7063115,-119.552634,17z" target="_blank" rel="noopener noreferrer">Get Directions →</a>
+                </div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div>
+                <div class="contact-item-label">Hours</div>
+                <div class="contact-item-val">
+                  <div class="hours-table">
+                    <span class="hday">Mon – Fri</span><span class="htime">8:00 AM – 5:30 PM</span>
+                    <span class="hday">Saturday</span><span class="htime">9:00 AM – 2:00 PM</span>
+                    <span class="hday">Sunday</span><span class="htime">Closed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-right reveal d2">
+          <div class="map-wrap">
+            <iframe
+              src="https://maps.google.com/maps?q=36.7063115,-119.552634&z=16&output=embed"
+              title="Eduardo's Auto Body location"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <div class="form-box">
+            <h3>Request a Free Estimate</h3>
+            <p>We'll respond within one business day.</p>
+            <form id="estimateForm" novalidate>
+              <div class="form-row-2">
+                <div class="fg"><label class="fl" for="firstName">First Name</label><input class="fi" type="text" id="firstName" name="firstName" placeholder="John" required autocomplete="given-name" /></div>
+                <div class="fg"><label class="fl" for="lastName">Last Name</label><input class="fi" type="text" id="lastName" name="lastName" placeholder="Doe" required autocomplete="family-name" /></div>
+              </div>
+              <div class="fg"><label class="fl" for="phone">Phone Number</label><input class="fi" type="tel" id="phone" name="phone" placeholder="(559) 000-0000" required autocomplete="tel" /></div>
+              <div class="fg"><label class="fl" for="service">Service Needed</label>
+                <select class="fs" id="service" name="service">
+                  <option value="">Select a service…</option>
+                  <option>Collision Repair</option>
+                  <option>Auto Paint & Refinishing</option>
+                  <option>Paintless Dent Removal</option>
+                  <option>Frame Straightening</option>
+                  <option>Insurance Claim Assistance</option>
+                  <option>Auto Glass Repair</option>
+                  <option>Other / Not Sure</option>
+                </select>
+              </div>
+              <div class="fg fg-last"><label class="fl" for="message">Vehicle & Damage Description</label><textarea class="ft" id="message" name="message" placeholder="Year, make, model — and a brief description of the damage…"></textarea></div>
+              <button type="submit" class="btn btn-blue" style="width:100%;justify-content:center;font-size:0.88rem;padding:14px;">
+                Send Estimate Request
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Eduardo's Auto Body</div>
+          <div class="footer-brand-sub">Fresno, California</div>
+          <p class="footer-brand-desc">Quality collision repair, auto paint, and body work serving Fresno and the Central Valley. Family-owned. Lifetime warranty.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-col-links" role="list">
+            <li><a href="#services">Collision Repair</a></li>
+            <li><a href="#services">Auto Paint & Refinishing</a></li>
+            <li><a href="#services">Paintless Dent Removal</a></li>
+            <li><a href="#services">Frame Straightening</a></li>
+            <li><a href="#services">Insurance Claims</a></li>
+            <li><a href="#services">Auto Glass Repair</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-col-links" role="list">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#certs">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-col-links" role="list">
+            <li><a href="tel:+15590000000">(559) 000-0000</a></li>
+            <li><a href="mailto:info@eduardosautobody.com">info@eduardosautobody.com</a></li>
+            <li><a href="https://www.google.com/maps/place/Eduardo's+Auto+Body/@36.7063115,-119.552634,17z" target="_blank" rel="noopener noreferrer">Get Directions</a></li>
+            <li style="color:rgba(255,255,255,0.25);font-size:0.78rem;margin-top:6px;">Mon–Fri 8AM–5:30PM</li>
+            <li style="color:rgba(255,255,255,0.25);font-size:0.78rem;">Sat 9AM–2PM · Sun Closed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; <span id="year"></span> Eduardo's Auto Body. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile bar -->
+  <div class="sticky-bar" role="complementary">
+    <span class="sticky-bar-phone"><a href="tel:+15590000000">(559) 000-0000</a></span>
+    <a href="#contact" class="btn btn-white" style="padding:10px 18px;font-size:0.78rem;">Free Estimate</a>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Hamburger / mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Carousel
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let autoplay;
+
+    function goTo(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function startAutoplay() {
+      autoplay = setInterval(() => goTo(current + 1), 5000);
+    }
+    function resetAutoplay() {
+      clearInterval(autoplay);
+      startAutoplay();
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        goTo(parseInt(dot.dataset.slide));
+        resetAutoplay();
+      });
+    });
+    document.getElementById('prevBtn').addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
+    document.getElementById('nextBtn').addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+    startAutoplay();
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('up'); ro.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+    reveals.forEach(el => ro.observe(el));
+
+    // Counters
+    function animateCount(el, target, duration = 1600) {
+      const start = performance.now();
+      const update = now => {
+        const p = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        const val = Math.round(ease * target);
+        el.textContent = target > 100 ? val.toLocaleString() : val;
+        if (p < 1) requestAnimationFrame(update);
+        else el.textContent = target > 100 ? target.toLocaleString() : target;
+      };
+      requestAnimationFrame(update);
+    }
+    const co = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { animateCount(e.target, parseInt(e.target.dataset.target, 10)); co.unobserve(e.target); }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach(el => co.observe(el));
+
+    // Before/after sliders
+    document.querySelectorAll('[data-slider]').forEach(slider => {
+      const after = slider.querySelector('.ba-after');
+      const handle = slider.querySelector('.ba-handle');
+      let dragging = false;
+      function setPos(pct) {
+        pct = Math.max(2, Math.min(98, pct));
+        after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+        handle.style.left = `${pct}%`;
+      }
+      function pct(x) { const r = slider.getBoundingClientRect(); return ((x - r.left) / r.width) * 100; }
+      handle.addEventListener('mousedown', e => { dragging = true; e.preventDefault(); });
+      window.addEventListener('mousemove', e => { if (dragging) setPos(pct(e.clientX)); });
+      window.addEventListener('mouseup', () => { dragging = false; });
+      handle.addEventListener('touchstart', e => { dragging = true; e.preventDefault(); }, { passive: false });
+      window.addEventListener('touchmove', e => { if (dragging) setPos(pct(e.touches[0].clientX)); }, { passive: true });
+      window.addEventListener('touchend', () => { dragging = false; });
+      slider.addEventListener('click', e => { if (!handle.contains(e.target)) setPos(pct(e.clientX)); });
+      setPos(50);
+    });
+
+    // Form submit
+    document.getElementById('estimateForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type=submit]');
+      const orig = btn.innerHTML;
+      btn.innerHTML = '✓ Request Sent! We\'ll be in touch shortly.';
+      btn.style.background = '#1a6e35';
+      btn.style.borderColor = '#1a6e35';
+      btn.style.pointerEvents = 'none';
+      setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.style.borderColor = ''; btn.style.pointerEvents = ''; this.reset(); }, 4000);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>
